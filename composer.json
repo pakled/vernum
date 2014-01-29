@@ -1,0 +1,23 @@
+{
+	"name"             : "pakled/version",
+	"description"      : "Library that helps creating, editing, sorting and comparing semantic version numbers",
+	"minimum-stability": "stable",
+	"license"          : "Apache License 2.0",
+	"authors"          : [
+		{
+			"name" : "Thomas Schramm",
+			"email": "schramm42@me.com"
+		}
+	],
+	"autoload"         : {
+		"psr-0": {
+			"Pakled\\Version": "lib"
+		}
+	},
+	"require-dev"      : {
+		"phpunit/phpunit": "3.7.29"
+	},
+	"require"          : {
+
+	}
+}
