@@ -11,7 +11,7 @@
 	],
 	"autoload"         : {
 		"psr-0": {
-			"Pakled\\Version": "lib"
+			"Pakled\\Version": "src"
 		}
 	},
 	"require-dev"      : {
