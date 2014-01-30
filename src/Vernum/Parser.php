@@ -17,6 +17,8 @@ class Parser
 	 */
 	public static function parse($version)
 	{
+		preg_grep("", $version);
+
 		return array(
 			'major' => 0,
 			'minor' => 0,
