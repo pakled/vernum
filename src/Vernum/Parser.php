@@ -10,31 +10,31 @@ namespace Vernum;
 class Parser
 {
 
-	/**
-	 * @todo special exception
-	 *
-	 * @param string $version
-	 *
-	 * @throws \RuntimeException
-	 * @return array
-	 */
-	public static function parse($version)
-	{
+    /**
+     * @todo special exception
+     *
+     * @param string $version
+     *
+     * @throws InvalidVersionNumberException
+     * @return array
+     */
+    public static function parse($version)
+    {
 
-		$result = preg_match(
-			"/^([0-9]+).([0-9]+).([0-9]+)/i",
-			$version,
-			$matches
-		);
+        $result = preg_match(
+            "/^([0-9]+).([0-9]+).([0-9]+)/i",
+            $version,
+            $matches
+        );
 
-		if (!$result) {
-			throw new \RuntimeException('Invalid version number');
-		}
+        if (!$result) {
+            throw new InvalidVersionNumberException('Invalid version number');
+        }
 
-		return array(
-			'major' => (int)$matches[1],
-			'minor' => (int)$matches[2],
-			'patch' => (int)$matches[3]
-		);
-	}
+        return array(
+            'major' => (int)$matches[1],
+            'minor' => (int)$matches[2],
+            'patch' => (int)$matches[3]
+        );
+    }
 }
