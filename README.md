@@ -1,4 +1,6 @@
-# Version
+# INCOMPLETE
+
+# Vernum
 
 Library that helps creating, editing, sorting and comparing semantic version numbers
 
@@ -15,7 +17,7 @@ Library that helps creating, editing, sorting and comparing semantic version num
     ``` json
     {
         "require": {
-            "pakled/version": "dev-master"
+            "pakled/vernum": "dev-master"
         }
     }
     ```
@@ -25,5 +27,5 @@ Library that helps creating, editing, sorting and comparing semantic version num
 ## Usage
 
 ```php
-use Pakled\Version\Parser;
+use Vernum\Parser;
 ```
