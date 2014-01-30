@@ -11,18 +11,30 @@ class Parser
 {
 
 	/**
-	 * @param $version
+	 * @todo special exception
 	 *
+	 * @param string $version
+	 *
+	 * @throws \RuntimeException
 	 * @return array
 	 */
 	public static function parse($version)
 	{
-		$result = preg_grep("", $version);
+
+		$result = preg_match(
+			"/^([0-9]+).([0-9]+).([0-9]+)/i",
+			$version,
+			$matches
+		);
+
+		if (!$result) {
+			throw new \RuntimeException('Invalid version number');
+		}
 
 		return array(
-			'major' => 0,
-			'minor' => 0,
-			'patch' => 0
+			'major' => (int)$matches[1],
+			'minor' => (int)$matches[2],
+			'patch' => (int)$matches[3]
 		);
 	}
 }
