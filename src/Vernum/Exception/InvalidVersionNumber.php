@@ -30,49 +30,14 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Vernum;
-
-use Vernum\Exception\InvalidVersionNumber;
+namespace Vernum\Exception;
 
 /**
- * Parser
+ * Class InvalidVersionNumber
  *
  * @package Vernum
- * @author  Thomas Schramm <schramm42@me.com>
  */
-class Parser
+class InvalidVersionNumber extends \Exception
 {
 
-    /**
-     *
-     * @param string $version
-     *
-     * @throws InvalidVersionNumber
-     * @return array
-     */
-    public static function parse($version)
-    {
-
-        $result = preg_match(
-            "/^(?P<major>[0-9]+).(?P<minor>[0-9]+).(?P<patch>[0-9]+)(?P<labels>-(alpha|dev))?/i",
-            $version,
-            $matches
-        );
-
-        if (!$result) {
-            throw new InvalidVersionNumber('Invalid version number');
-        }
-
-        $result = array(
-            'major' => (int)$matches['major'],
-            'minor' => (int)$matches['minor'],
-            'patch' => (int)$matches['patch']
-        );
-
-        if (isset($matches['labels'])) {
-            $result['labels'] = array($matches[5]);
-        }
-
-        return $result;
-    }
 }

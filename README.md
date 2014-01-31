@@ -1,8 +1,19 @@
 # Vernum
 
+Master: [![Build Status](https://travis-ci.org/pakled/vernum.png?branch=master)](https://travis-ci.org/pakled/vernum)
+0.1.0: [![Build Status](https://travis-ci.org/pakled/vernum.png?branch=0.1.0)](https://travis-ci.org/pakled/vernum)
+
 Library that helps creating, editing, sorting and comparing semantic version numbers
 
-## Installation
+## Getting Started
+
+### System Requirements
+
+You need **PHP >= 5.4.0**.
+
+### Installation
+
+You may install the Vernum Component with Composer (recommended) or manually.
 
 1. Download the [`composer.phar`](https://getcomposer.org/composer.phar) executable or use the installer.
 
