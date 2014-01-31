@@ -44,7 +44,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
 {
 
     /**
-     * @expectedException \Vernum\InvalidVersionNumberException
+     * @expectedException \Vernum\Exception\InvalidVersionNumber
      */
     public function testInvalidVersionNumberException()
     {
