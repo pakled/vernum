@@ -22,7 +22,7 @@ class Parser
     {
 
         $result = preg_match(
-            "/^([0-9]+).([0-9]+).([0-9]+)/i",
+            "/^(?P<major>[0-9]+).(?P<minor>[0-9]+).(?P<patch>[0-9]+)(?P<labels>-(alpha|dev))?/i",
             $version,
             $matches
         );
@@ -31,10 +31,16 @@ class Parser
             throw new InvalidVersionNumberException('Invalid version number');
         }
 
-        return array(
-            'major' => (int)$matches[1],
-            'minor' => (int)$matches[2],
-            'patch' => (int)$matches[3]
+        $result = array(
+            'major' => (int)$matches['major'],
+            'minor' => (int)$matches['minor'],
+            'patch' => (int)$matches['patch']
         );
+
+        if (isset($matches['labels'])) {
+            $result['labels'] = array($matches[5]);
+        }
+
+        return $result;
     }
 }
