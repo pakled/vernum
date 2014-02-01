@@ -29,3 +29,7 @@ Library that helps creating, editing, sorting and comparing semantic version num
 ```php
 use Vernum\Parser;
 ```
+
+## License
+
+Vernum is licensed under the MIT license.
