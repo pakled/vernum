@@ -37,8 +37,6 @@ namespace Vernum;
  *
  * @author Thomas Schramm <schramm42@me.com>
  *
- * @todo   implement isGreaterThanEquals
- * @todo   implement isLowerThanEquals
  */
 class Version
 {
