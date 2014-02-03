@@ -105,6 +105,25 @@ class Version
     }
 
     /**
+     * @return string
+     */
+    public function dump()
+    {
+        $number = sprintf(
+            "%s.%s.%s",
+            $this->major,
+            $this->minor,
+            $this->patch
+        );
+
+        if (!empty($this->labels)) {
+            $number .= "-" . join(".", $this->labels);
+        }
+
+        return $number;
+    }
+
+    /**
      * @return array
      */
     public function getLabels()
@@ -156,62 +175,8 @@ class Version
     public function isEqualTo(Version $version)
     {
         return $this->getMajor() === $version->getMajor()
-            && $this->getMinor() === $version->getMinor()
-            && $this->getPatch() === $version->getPatch();
-    }
-
-    /**
-     * @return string
-     */
-    public function dump()
-    {
-        $number = sprintf(
-            "%s.%s.%s",
-            $this->major,
-            $this->minor,
-            $this->patch
-        );
-
-        if (!empty($this->labels)) {
-            $number .= "-" . join(".", $this->labels);
-        }
-
-        return $number;
-    }
-
-    /**
-     *
-     * @param Version $version
-     *
-     * @return bool
-     */
-    public function isGreaterThan(Version $version)
-    {
-        if ($this->getMajor() > $version->getMajor()) {
-            return true;
-        }
-
-        if ($this->getMajor() < $version->getMajor()) {
-            return false;
-        }
-
-        if ($this->getMinor() > $version->getMinor()) {
-            return true;
-        }
-
-        if ($this->getMinor() < $version->getMinor()) {
-            return false;
-        }
-
-        if ($this->getPatch() > $version->getPatch()) {
-            return true;
-        }
-
-        if ($this->getPatch() < $version->getPatch()) {
-            return false;
-        }
-
-        return false;
+        && $this->getMinor() === $version->getMinor()
+        && $this->getPatch() === $version->getPatch();
     }
 
     /**
@@ -275,6 +240,41 @@ class Version
     }
 
     /**
+     *
+     * @param Version $version
+     *
+     * @return bool
+     */
+    public function isGreaterThan(Version $version)
+    {
+        if ($this->getMajor() > $version->getMajor()) {
+            return true;
+        }
+
+        if ($this->getMajor() < $version->getMajor()) {
+            return false;
+        }
+
+        if ($this->getMinor() > $version->getMinor()) {
+            return true;
+        }
+
+        if ($this->getMinor() < $version->getMinor()) {
+            return false;
+        }
+
+        if ($this->getPatch() > $version->getPatch()) {
+            return true;
+        }
+
+        if ($this->getPatch() < $version->getPatch()) {
+            return false;
+        }
+
+        return false;
+    }
+
+    /**
      * @todo implement
      *
      * @param Version $version
@@ -283,6 +283,25 @@ class Version
      */
     public function isLessThan(Version $version)
     {
+        if ($this->getMajor() < $version->getMajor()) {
+            return true;
+        }
+        if ($this->getMajor() > $version->getMajor()) {
+            return false;
+        }
+        if ($this->getMinor() < $version->getMinor()) {
+            return true;
+        }
+        if ($this->getMinor() > $version->getMinor()) {
+            return false;
+        }
+        if ($this->getPatch() < $version->getPatch()) {
+            return true;
+        }
+        if ($this->getPatch() > $version->getPatch()) {
+            return false;
+        }
+
         return false;
     }
 }

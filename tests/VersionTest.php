@@ -32,12 +32,13 @@
 
 namespace Vernum\Tests;
 
+use PHPUnit_Framework_TestCase;
 use Vernum\Version;
 
 /**
  * Class VersionTest
  */
-class VersionTest extends \PHPUnit_Framework_TestCase
+class VersionTest extends PHPUnit_Framework_TestCase
 {
 
     /**
@@ -94,6 +95,9 @@ class VersionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("0.0.0", $version->dump());
     }
 
+    /**
+     *
+     */
     public function testIncrease()
     {
         $version = new Version(1, 5, 1);
@@ -107,6 +111,9 @@ class VersionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("2.6.2", $version->dump());
     }
 
+    /**
+     *
+     */
     public function testIsEqualTo()
     {
         $version1 = new Version(3, 2, 0, array('dev'));
@@ -137,6 +144,26 @@ class VersionTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($version2->isGreaterThan($version5));
         $this->assertFalse($version2->isGreaterThan($version1));
         $this->assertFalse($version3->isGreaterThan($version4));
+    }
+
+    /**
+     *
+     */
+    public function testIsLessThan()
+    {
+        $version1 = new Version(3, 2, 0);
+        $version2 = new Version(1, 1, 1);
+        $version3 = new Version(1, 4, 1);
+        $version4 = new Version(1, 4, 10);
+        $version5 = new Version(1, 4, 10);
+
+        $this->assertFalse($version1->isLessThan($version2));
+        $this->assertFalse($version3->isLessThan($version2));
+        $this->assertFalse($version4->isLessThan($version3));
+        $this->assertFalse($version4->isLessThan($version5));
+        $this->assertTrue($version2->isLessThan($version5));
+        $this->assertTrue($version2->isLessThan($version1));
+        $this->assertTrue($version3->isLessThan($version4));
     }
 
     /**
