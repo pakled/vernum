@@ -48,6 +48,24 @@ class VersionTest extends \PHPUnit_Framework_TestCase
     /**
      *
      */
+    public function testAddLabel()
+    {
+        $version = new Version(1, 0, 0);
+        $version->addLabel('dev');
+        $version->addLabel('alpha');
+
+        $this->assertEquals(
+            array(
+                'dev',
+                'alpha'
+            ), $version->getLabels()
+        );
+        $this->assertEquals('1.0.0-dev.alpha', $version->dump());
+    }
+
+    /**
+     *
+     */
     public function testConstructor()
     {
         $version = new Version(2, 10, 213);
@@ -75,6 +93,31 @@ class VersionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("0.0.0", $version->dump());
     }
 
+    public function testIncrease()
+    {
+        $version = new Version(1, 5, 1);
+
+        $version->increaseMinor();
+        $this->assertEquals(6, $version->getMinor());
+        $version->increasePatch();
+        $this->assertEquals(2, $version->getPatch());
+        $version->increaseMajor();
+        $this->assertEquals(2, $version->getMajor());
+        $this->assertEquals("2.6.2", $version->dump());
+    }
+
+    public function testIsEqual()
+    {
+        $version1 = new Version(3, 2, 0, array('dev'));
+        $version2 = new Version(1, 1, 1);
+        $version3 = new Version(3, 2, 0);
+        $version4 = new Version(3, 2, 0, array('dev'));
+
+        $this->assertFalse($version1->isEqual($version2));
+        $this->assertTrue($version1->isEqual($version3));
+        $this->assertTrue($version1->isEqual($version4));
+    }
+
     /**
      *
      */
@@ -93,18 +136,6 @@ class VersionTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($version2->isGreaterThan($version5));
         $this->assertFalse($version2->isGreaterThan($version1));
         $this->assertFalse($version3->isGreaterThan($version4));
-    }
-
-    public function testIsEqual()
-    {
-        $version1 = new Version(3, 2, 0, array('dev'));
-        $version2 = new Version(1, 1, 1);
-        $version3 = new Version(3, 2, 0);
-        $version4 = new Version(3, 2, 0, array('dev'));
-
-        $this->assertFalse($version1->isEqual($version2));
-        $this->assertTrue($version1->isEqual($version3));
-        $this->assertTrue($version1->isEqual($version4));
     }
 
     /**
