@@ -275,7 +275,6 @@ class Version
     }
 
     /**
-     * @todo implement
      *
      * @param Version $version
      *
