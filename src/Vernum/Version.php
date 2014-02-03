@@ -155,7 +155,9 @@ class Version
      */
     public function isEqual(Version $version)
     {
-        return $this->dump() === $version->dump();
+        return $this->getMajor() === $version->getMajor()
+            && $this->getMinor() === $version->getMinor()
+            && $this->getPatch() === $version->getPatch();
     }
 
     /**
