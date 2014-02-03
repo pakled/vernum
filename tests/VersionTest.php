@@ -58,7 +58,8 @@ class VersionTest extends \PHPUnit_Framework_TestCase
             array(
                 'dev',
                 'alpha'
-            ), $version->getLabels()
+            ),
+            $version->getLabels()
         );
         $this->assertEquals('1.0.0-dev.alpha', $version->dump());
     }
@@ -106,16 +107,16 @@ class VersionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("2.6.2", $version->dump());
     }
 
-    public function testIsEqual()
+    public function testIsEqualTo()
     {
         $version1 = new Version(3, 2, 0, array('dev'));
         $version2 = new Version(1, 1, 1);
         $version3 = new Version(3, 2, 0);
         $version4 = new Version(3, 2, 0, array('dev'));
 
-        $this->assertFalse($version1->isEqual($version2));
-        $this->assertTrue($version1->isEqual($version3));
-        $this->assertTrue($version1->isEqual($version4));
+        $this->assertFalse($version1->isEqualTo($version2));
+        $this->assertTrue($version1->isEqualTo($version3));
+        $this->assertTrue($version1->isEqualTo($version4));
     }
 
     /**

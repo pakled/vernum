@@ -153,7 +153,7 @@ class Version
      *
      * @return bool
      */
-    public function isEqual(Version $version)
+    public function isEqualTo(Version $version)
     {
         return $this->getMajor() === $version->getMajor()
             && $this->getMinor() === $version->getMinor()
