@@ -281,7 +281,7 @@ class Version
      *
      * @return bool
      */
-    public function isLowerThan(Version $version)
+    public function isLessThan(Version $version)
     {
         return false;
     }
