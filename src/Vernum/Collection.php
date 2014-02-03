@@ -57,11 +57,11 @@ class Collection
     }
 
     /**
-     * @param Version $version
+     * @param VersionInterface $version
      *
      * @return Collection
      */
-    public function addVersion(Version $version)
+    public function addVersion(VersionInterface $version)
     {
         $this->versions[] = $version;
 
@@ -70,7 +70,7 @@ class Collection
 
     /**
      * @throws Exception\EmptyCollection
-     * @return Version
+     * @return VersionInterface
      */
     public function getFirst()
     {
@@ -108,7 +108,7 @@ class Collection
     {
         usort(
             $this->versions,
-            function (Version $a, Version $b) {
+            function (VersionInterface $a, VersionInterface $b) {
                 if ($a->isEqualTo($b)) {
                     return 0;
                 }
@@ -127,7 +127,7 @@ class Collection
     {
         usort(
             $this->versions,
-            function (Version $a, Version $b) {
+            function (VersionInterface $a, VersionInterface $b) {
                 if ($a->isEqualTo($b)) {
                     return 0;
                 }

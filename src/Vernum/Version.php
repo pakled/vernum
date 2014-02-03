@@ -33,12 +33,12 @@
 namespace Vernum;
 
 /**
- * Parser
+ * Version implementation
  *
  * @author Thomas Schramm <schramm42@me.com>
  *
  */
-class Version
+class Version implements VersionInterface
 {
 
     /**
@@ -62,6 +62,9 @@ class Version
     private $patch = 0;
 
     /**
+     * Constructs the Version object with given major, minor, patch
+     * and additional labels
+     *
      * @param string|int $major
      * @param string|int $minor
      * @param string|int $patch
@@ -91,9 +94,7 @@ class Version
     }
 
     /**
-     * @param string $label
-     *
-     * @return Version
+     * {@inheritdoc}
      */
     public function addLabel($label)
     {
@@ -103,7 +104,7 @@ class Version
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function dump()
     {
@@ -122,7 +123,7 @@ class Version
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function getLabels()
     {
@@ -130,9 +131,7 @@ class Version
     }
 
     /**
-     * @param array $labels
-     *
-     * @return Version
+     * {@inheritdoc}
      */
     public function setLabels(array $labels)
     {
@@ -142,35 +141,39 @@ class Version
     }
 
     /**
-     *
+     * {@inheritdoc}
      */
     public function increaseMajor()
     {
         $this->major++;
+
+        return $this;
     }
 
     /**
-     *
+     * {@inheritdoc}
      */
     public function increaseMinor()
     {
         $this->minor++;
+
+        return $this;
     }
 
     /**
-     *
+     * {@inheritdoc}
      */
     public function increasePatch()
     {
         $this->patch++;
+
+        return $this;
     }
 
     /**
-     * @param Version $version
-     *
-     * @return bool
+     * {@inheritdoc}
      */
-    public function isEqualTo(Version $version)
+    public function isEqualTo(VersionInterface $version)
     {
         return $this->getMajor() === $version->getMajor()
         && $this->getMinor() === $version->getMinor()
@@ -178,7 +181,7 @@ class Version
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getMajor()
     {
@@ -186,9 +189,7 @@ class Version
     }
 
     /**
-     * @param mixed $major
-     *
-     * @return Version
+     * {@inheritdoc}
      */
     public function setMajor($major)
     {
@@ -198,7 +199,7 @@ class Version
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getMinor()
     {
@@ -206,9 +207,7 @@ class Version
     }
 
     /**
-     * @param mixed $minor
-     *
-     * @return Version
+     * {@inheritdoc}
      */
     public function setMinor($minor)
     {
@@ -218,7 +217,7 @@ class Version
     }
 
     /**
-     * @return mixed
+     * {@inheritdoc}
      */
     public function getPatch()
     {
@@ -226,9 +225,7 @@ class Version
     }
 
     /**
-     * @param mixed $patch
-     *
-     * @return Version
+     * {@inheritdoc}
      */
     public function setPatch($patch)
     {
@@ -239,11 +236,9 @@ class Version
 
     /**
      *
-     * @param Version $version
-     *
-     * @return bool
+     * {@inheritdoc}
      */
-    public function isGreaterThan(Version $version)
+    public function isGreaterThan(VersionInterface $version)
     {
         if ($this->getMajor() > $version->getMajor()) {
             return true;
@@ -274,11 +269,9 @@ class Version
 
     /**
      *
-     * @param Version $version
-     *
-     * @return bool
+     * {@inheritdoc}
      */
-    public function isLessThan(Version $version)
+    public function isLessThan(VersionInterface $version)
     {
         if ($this->getMajor() < $version->getMajor()) {
             return true;
