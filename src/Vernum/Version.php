@@ -70,9 +70,9 @@ class Version
      * @param array      $labels
      */
     public function __construct(
-        $major = null,
-        $minor = null,
-        $patch = null,
+        $major = 0,
+        $minor = 0,
+        $patch = 0,
         $labels = array()
     ) {
         if ($major != null) {
