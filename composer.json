@@ -1,6 +1,6 @@
 {
-    "name"       : "pakled/version",
-    "description": "Library that helps creating, editing, sorting and comparing semantic version numbers",
+	"name": "pakled/vernum",
+	"description": "Library that helps creating, editing, sorting and comparing semantic version numbers",
     "type"       : "library",
     "license"    : "MIT",
     "authors"    : [
