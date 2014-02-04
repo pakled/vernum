@@ -1,7 +1,6 @@
 # Vernum
 
 Master: [![Build Status](https://travis-ci.org/pakled/vernum.png?branch=master)](https://travis-ci.org/pakled/vernum)
-0.1.0: [![Build Status](https://travis-ci.org/pakled/vernum.png?branch=0.1.0)](https://travis-ci.org/pakled/vernum)
 
 Library that helps creating, editing, sorting and comparing semantic version numbers
 
@@ -37,4 +36,10 @@ You may install the Vernum Component with Composer (recommended) or manually.
 
 ```php
 use Vernum\Parser;
+
+$version = Parser::parse("1.0.2-dev");
+
+echo $version->getMajor();
+echo $version->getMinor();
+echo $version->getPatch();
 ```
