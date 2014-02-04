@@ -1,6 +1,6 @@
 # Vernum
 
-Master: [![Build Status](https://travis-ci.org/pakled/vernum.png?branch=master)](https://travis-ci.org/pakled/vernum)
+Master: [![Build Status](https://api.travis-ci.org/pakled/vernum.png?branch=master)](https://travis-ci.org/pakled/vernum)
 
 Library that helps creating, editing, sorting and comparing semantic version numbers
 
@@ -43,3 +43,7 @@ echo $version->getMajor();
 echo $version->getMinor();
 echo $version->getPatch();
 ```
+
+## License
+
+Vernum is licensed under the MIT license.
