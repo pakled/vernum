@@ -43,3 +43,7 @@ echo $version->getMajor();
 echo $version->getMinor();
 echo $version->getPatch();
 ```
+
+## License
+
+Vernum is licensed under the MIT license.
