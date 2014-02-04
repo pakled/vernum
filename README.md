@@ -1,6 +1,6 @@
 # Vernum
 
-Master: [![Build Status](http://travis-ci.org/pakled/vernum.png?branch=master)](http://travis-ci.org/pakled/vernum)
+Master: [![Build Status](https://api.travis-ci.org/pakled/vernum.png?branch=master)](https://travis-ci.org/pakled/vernum)
 
 Library that helps creating, editing, sorting and comparing semantic version numbers
 
