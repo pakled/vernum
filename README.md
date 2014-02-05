@@ -38,8 +38,16 @@ You may install the Vernum Component with Composer (recommended) or manually.
 
 ```php
 use Vernum\Parser;
+use Vernum\Version;
 
-$version = Parser::parse("1.0.2-dev");
+$parsedVersion = Parser::parse("1.0.2-dev");
+
+$version = new Version(
+	$parsedVersion['major'],
+	$parsedVersion['minor'],
+	$parsedVersion['patch'],
+	$parsedVersion['labels']
+);
 
 echo $version->getMajor();
 echo $version->getMinor();
