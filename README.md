@@ -3,6 +3,7 @@
 [![Build Status](https://api.travis-ci.org/pakled/vernum.png?branch=master)](https://travis-ci.org/pakled/vernum)
 [![Total Downloads](https://poser.pugx.org/pakled/vernum/downloads.png)](https://packagist.org/packages/pakled/vernum)
 [![License](https://poser.pugx.org/pakled/vernum/license.png)](https://packagist.org/packages/pakled/vernum)
+[![Hack pakled/vernum on Nitrous](https://d3o0mnbgv6k92a.cloudfront.net/assets/hack-s-v1-19458b540eb9a0b6a943ee6d27941699.png)](https://www.nitrous.io/hack_button?source=embed&runtime=php&repo=pakled%2Fvernum)
 
 Library that helps creating, editing, sorting and comparing semantic version numbers
 
